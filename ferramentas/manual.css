@@ -1,0 +1,87 @@
+/* Manual do SISGEC — A4 institucional, mesma paleta verde-oliva do guia de referência. */
+:root {
+  --ol-900: #161f12; --ol-700: #2a3723; --ol-500: #4a5b35; --bar: #2f6a1f;
+  --sage: #a3b585; --line: #d3dac6; --line-2: #e2e7d8; --paper: #f6f8f1;
+  --ink: #18200f; --ink-2: #333c2c; --muted: #59634f;
+  --pill-bg: #e6ebda; --pill-line: #bfcaa9; --pill-ink: #2f4024;
+  --warn-bg: #fff6d6; --warn-line: #d9b746; --warn-ink: #5e4300;
+}
+@page {
+  size: A4; margin: 26mm 18mm 20mm 18mm;
+  @top-left { content: "SISGEC · SISTEMA DE GESTÃO E CONTROLE"; font: 600 7.5pt "Segoe UI", Arial; color: #59634f; letter-spacing: .08em; border-bottom: .6pt solid #2a3723; vertical-align: bottom; padding-bottom: 2mm; }
+  @top-right { content: "MANUAL DO USUÁRIO"; font: 600 7.5pt "Segoe UI", Arial; color: #59634f; letter-spacing: .08em; border-bottom: .6pt solid #2a3723; vertical-align: bottom; padding-bottom: 2mm; }
+  @bottom-left { content: "Telas com dados fictícios · cópia de demonstração"; font: 7pt "Segoe UI", Arial; color: #8a917f; }
+  @bottom-right { content: counter(page); font: 600 8pt "Segoe UI", Arial; color: #2a3723; }
+}
+@page :first { margin: 0; @top-left { content: none; border: 0; } @top-right { content: none; border: 0; } @bottom-left { content: none; } @bottom-right { content: none; } }
+
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; font: 10pt/1.5 "Cambria", "Georgia", serif; color: var(--ink); }
+h1, h2, h3, th, .sec, .pill, figcaption, table, .capa { font-family: "Segoe UI", "Selawik", Arial, sans-serif; }
+
+/* Capa */
+.capa { height: 297mm; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  color: #fff; background: radial-gradient(ellipse 60% 55% at 50% 40%, rgba(132,156,88,.30), transparent 70%),
+  linear-gradient(150deg, var(--ol-900) 0%, var(--ol-700) 50%, var(--ol-500) 100%); break-after: page; position: relative; }
+.capa .selo { width: 62mm; margin-bottom: 10mm; filter: drop-shadow(0 4mm 8mm rgba(0,0,0,.35)); }
+.capa .org { letter-spacing: .3em; font-size: 9pt; color: var(--sage); font-weight: 700; }
+.capa h1 { font-size: 54pt; margin: 2mm 0 0; letter-spacing: .04em; font-weight: 800; }
+.capa .tit { font-size: 20pt; font-weight: 300; letter-spacing: .18em; margin-top: 1mm; }
+.capa .sub { font: italic 11pt "Cambria", Georgia, serif; color: #dfe6cf; max-width: 120mm; margin-top: 8mm; }
+.capa .rod { position: absolute; bottom: 18mm; font-size: 8pt; color: #c9d3b4; letter-spacing: .06em; line-height: 1.6; }
+
+/* Sumário */
+.sumario { break-after: page; }
+.sumario h2, .cap h2 { font-size: 12pt; letter-spacing: .04em; text-transform: uppercase; border-bottom: 1.2pt solid var(--ol-700);
+  padding-bottom: 1.5mm; margin: 7mm 0 3mm; break-after: avoid; }
+
+/* Abertura do capítulo */
+.cap { break-before: page; }
+.abre { display: flex; align-items: center; gap: 6mm; margin: 4mm 0 7mm; padding: 5mm 0 5mm;
+  border-bottom: 2.4pt solid var(--ol-700); break-inside: avoid; }
+.abre .num { font: 800 46pt/1 "Segoe UI", Arial; color: var(--sage); padding-right: 6mm;
+  border-right: 1pt solid var(--line); min-width: 30mm; text-align: center; }
+.abre .tt { display: flex; flex-direction: column; align-items: flex-start; gap: 2mm; }
+.abre .sec { font-size: 8pt; line-height: 1; letter-spacing: .3em; color: var(--bar); font-weight: 700; }
+.abre h1 { font-size: 24pt; line-height: 1.05; margin: 0; font-weight: 800; text-transform: uppercase; color: var(--ink); }
+.pill { display: inline-block; font-size: 7.5pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--pill-ink); background: var(--pill-bg); border: .6pt solid var(--pill-line); border-radius: 99px; padding: 1mm 3.5mm; }
+
+p { margin: 0 0 2.5mm; text-align: justify; }
+ol, ul { margin: 0 0 3mm; padding-left: 6mm; }
+li { margin: .8mm 0; }
+ol { list-style: lower-alpha; }
+ol > li::marker { font-weight: 700; color: var(--ol-700); }
+strong { color: var(--ink); }
+
+/* Tabelas */
+table { width: 100%; border-collapse: collapse; margin: 2mm 0 4mm; font-size: 8.6pt; break-inside: avoid; border: .6pt solid #c3ccb3; }
+th { background: var(--ol-700); color: #fff; text-align: left; font-size: 7.4pt; letter-spacing: .06em; text-transform: uppercase; padding: 2mm 2.5mm; }
+td { padding: 1.8mm 2.5mm; border-top: .6pt solid var(--line-2); vertical-align: top; }
+tbody tr:nth-child(even) td { background: #f7f9f2; }
+td:first-child { font-weight: 600; }
+
+/* Figuras */
+figure { margin: 3mm 0 5mm; break-inside: avoid; text-align: center; }
+figure img { max-width: 100%; max-height: 100mm; border: .6pt solid #c3ccb3; border-radius: 1.5mm; box-shadow: 0 1mm 3mm rgba(0,0,0,.12); }
+figcaption { font-size: 7.6pt; color: var(--muted); margin-top: 1.5mm; letter-spacing: .03em; }
+figcaption::before { content: "Figura — "; font-weight: 700; }
+p:has(> figure) { margin: 0; }
+
+/* Caixas (alertas do GitHub) */
+.caixa { border-left: 1.4mm solid var(--ol-500); background: linear-gradient(90deg, #e9eedf, #f6f8f1); border: .6pt solid #c9d2b8;
+  border-left-width: 1.4mm; padding: 3mm 4mm; margin: 3mm 0 4mm; break-inside: avoid; font-size: 9.4pt; }
+.caixa p { margin: 0 0 1.5mm; text-align: left; }
+.caixa > p:first-child strong:only-child { font: 700 7.6pt "Segoe UI", Arial; letter-spacing: .14em; color: var(--ol-700); }
+.caixa ul { margin: 1mm 0 0; }
+.caixa.atencao { background: var(--warn-bg); border-color: var(--warn-line); border-left-color: #b8901b; }
+.caixa.atencao > p:first-child strong:only-child { color: var(--warn-ink); }
+.caixa.resumo { background: var(--ol-700); color: #eef2e4; border-color: var(--ol-700); border-left-color: var(--sage); }
+.caixa.resumo strong { color: #fff; }
+
+/* Fecho padrão dos documentos do SISGEC */
+.fecho { break-before: avoid; margin-top: 18mm; text-align: center; font-family: "Segoe UI", Arial, sans-serif; break-inside: avoid; }
+.fecho p { text-align: center; margin: 0 0 1mm; }
+.fecho .local { text-align: left; margin-bottom: 22mm; font-family: "Cambria", Georgia, serif; }
+.fecho .nome { font-weight: 700; border-top: .6pt solid var(--ink-2); display: inline-block; padding-top: 2mm; min-width: 90mm; }
